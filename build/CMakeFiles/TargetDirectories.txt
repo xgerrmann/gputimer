@@ -1,0 +1,2 @@
+/home/xgerrmann/Documents/src/gputimer/build/CMakeFiles/gputimer.dir
+/home/xgerrmann/Documents/src/gputimer/build/CMakeFiles/gputimer_test.dir

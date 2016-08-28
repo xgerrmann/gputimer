@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/gputimer_test.dir/gputimer_test.cpp.o CMakeFiles/gputimer_test.dir/gputimer_test_generated_gputimer.cu.o  -o ../bin/gputimer_test -rdynamic /usr/local/cuda/lib64/libcudart.so -Wl,-rpath,/usr/local/cuda/lib64 

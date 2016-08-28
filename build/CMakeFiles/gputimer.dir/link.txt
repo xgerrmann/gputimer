@@ -1,0 +1,2 @@
+/usr/bin/ar cq ../lib/libgputimer.a  CMakeFiles/gputimer.dir/gputimer_test.cpp.o
+/usr/bin/ranlib ../lib/libgputimer.a
