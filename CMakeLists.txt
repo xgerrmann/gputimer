@@ -24,7 +24,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 
 # Create binaries
 #-------------------
-add_library(${PROJECT_NAME} STATIC ${${PROJECT_NAME}_headers} ${${PROJECT_NAME}_sources})
+#add_library(${PROJECT_NAME} STATIC ${${PROJECT_NAME}_headers} ${${PROJECT_NAME}_sources}) # static library -> *.a
+add_library(${PROJECT_NAME} SHARED ${${PROJECT_NAME}_headers} ${${PROJECT_NAME}_sources}) # shared library -> *.so
 
 cuda_add_executable(gputimer_test ${${PROJECT_NAME}_sources} ${${PROJECT_NAME}_headers})
 
