@@ -3,30 +3,6 @@
 // X.G.Gerrmann
 // 29-08-2016
 
-//#ifndef GPUTIMER_H
-//#define GPUTIMER_H
-//
-//#include <stdio.h>
-//#include <iostream>
-//#include <cuda_runtime.h>
-//
-//#define _DEVICE_ID 0
-//
-//// extern "C"
-//class gputimer{
-//	public:
-//		// initializer
-//		gputimer();
-//		// public child functions
-//		void start();
-//		float lap(std::string text);
-//		float stop();
-//	private:
-//		bool running;
-//		cudaEvent_t event_start, event_lap_prev, event_stop;
-//		float milliseconds;
-//		void show_time(std::string text, bool lap = false);
-//};
 #include "gputimer.hpp"
 
 // Constructor
@@ -84,5 +60,4 @@ void gputimer::show_time(std::string text, bool lap){
 		std::cerr<< "Total time: " << milliseconds/1000 << std::endl;
 	}
 	return;
- }
-//#endif
+}
