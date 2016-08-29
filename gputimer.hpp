@@ -28,27 +28,28 @@ class gputimer{
 		void show_time(std::string text, bool lap = false);
 };
 
+
 //// Constructor
 //gputimer::gputimer(){
 //	running = false;
-//	cudaEventCreate(&start);
-//	cudaEventCreate(&lap_prev);
-//	cudaEventCreate(&stop);
+//	cudaEventCreate(&event_start);
+//	cudaEventCreate(&event_lap_prev);
+//	cudaEventCreate(&event_stop);
 //}
 //
 //// Start function
 //void gputimer::start(){
 //	running = true;
-//	cudaEventRecord(start,_DEVICE_ID);
-//	cudaEventRecord(lap_prev,_DEVICE_ID);
+//	cudaEventRecord(event_start,_DEVICE_ID);
+//	cudaEventRecord(event_lap_prev,_DEVICE_ID);
 //	milliseconds = 0;
 //}
 //
 //// Lap function
 //float gputimer::lap(std::string text){
 //	if(running == true){
-//		t = show_time(text,true);
-//		cudaEventRecord(lap_prev,_DEVICE_ID);
+//		show_time(text,true);
+//		cudaEventRecord(event_lap_prev,_DEVICE_ID);
 //	}
 //	else{
 //		std::cout << "Timer has not been started yet";
@@ -71,18 +72,17 @@ class gputimer{
 //// Show time function
 //void gputimer::show_time(std::string text, bool lap){
 //	if(lap){
-//		cudaEventRecord(stop,_DEVICE_ID);
-//		cudaEventSynchronize(stop);
-//		cudaEventElapsedTime(&milliseconds, lap_prev, stop);
+//		cudaEventRecord(event_stop,_DEVICE_ID);
+//		cudaEventSynchronize(event_stop);
+//		cudaEventElapsedTime(&milliseconds, event_lap_prev, event_stop);
 //		std::cerr<< text << ": Elapsed time: " << milliseconds/1000 << std::endl;
 //	}
 //	else{
-//		cudaEventRecord(stop,_DEVICE_ID);
-//		cudaEventSynchronize(stop);
-//		cudaEventElapsedTime(&milliseconds, lap_prev, stop);
+//		cudaEventRecord(event_stop,_DEVICE_ID);
+//		cudaEventSynchronize(event_stop);
+//		cudaEventElapsedTime(&milliseconds, event_start, event_stop);
 //		std::cerr<< "Total time: " << milliseconds/1000 << std::endl;
 //	}
 //	return;
 // }
-//
 #endif

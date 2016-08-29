@@ -12,7 +12,8 @@ SET(CUDA_PROPAGATE_HOST_FLAGS OFF)
 ## Add headers and source files
 #-------------------
 set (${PROJECT_NAME}_headers ./gputimer.hpp)
-set (${PROJECT_NAME}_sources ./gputimer_test.cpp ./gputimer.cu)
+#set (${PROJECT_NAME}_sources ./gputimer_test.cpp ./gputimer.cu)
+set (${PROJECT_NAME}_sources ./gputimer_test.cpp ./gputimer.cpp)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
