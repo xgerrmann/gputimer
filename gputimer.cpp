@@ -32,6 +32,10 @@ float gputimer::lap(std::string text){
 	}
 	return milliseconds/1000;
 }
+// Lap function (overloaded)
+float gputimer::lap(){
+	gputimer::lap("");
+}
 
 // Stop function
 float gputimer::stop(){
@@ -51,7 +55,8 @@ void gputimer::show_time(std::string text, bool lap){
 		cudaEventRecord(event_stop,_DEVICE_ID);
 		cudaEventSynchronize(event_stop);
 		cudaEventElapsedTime(&milliseconds, event_lap_prev, event_stop);
-		std::cerr<< text << ": Elapsed time: " << milliseconds/1000 << std::endl;
+		if(text	!= "") // Only print if text is given.
+			std::cerr<< text << ": Elapsed time: " << milliseconds/1000 << std::endl;
 	}
 	else{
 		cudaEventRecord(event_stop,_DEVICE_ID);

@@ -7,6 +7,7 @@ int main(){
 	for(int i = 0; i<10; i++){
 		sleep(1);
 		watch.lap("Loop time");
+		watch.lap();
 	}
 	watch.stop();
 

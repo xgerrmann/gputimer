@@ -19,6 +19,7 @@ class gputimer{
 		// public child functions
 		void start();
 		float lap(std::string text);
+		float lap();
 		float stop();
 	private:
 		bool running;
