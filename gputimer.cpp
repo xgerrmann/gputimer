@@ -34,19 +34,23 @@ float gputimer::lap(std::string text){
 }
 // Lap function (overloaded)
 float gputimer::lap(){
-	gputimer::lap("");
+	return gputimer::lap("");
 }
 
 // Stop function
-float gputimer::stop(){
+float gputimer::stop(std::string text){
 	if(running == true){
-		show_time("",false); // also sets milliseconds
+		show_time(text,false); // also sets milliseconds
 		running	= false;
 	}
 	else{
 		std::cout << "Timer has not been started yet";
 	}
 	return milliseconds/1000;
+}
+// Stop function (overloaded)
+float gputimer::stop(){
+	return gputimer::stop("");
 }
 
 // Show time function
@@ -62,7 +66,8 @@ void gputimer::show_time(std::string text, bool lap){
 		cudaEventRecord(event_stop,_DEVICE_ID);
 		cudaEventSynchronize(event_stop);
 		cudaEventElapsedTime(&milliseconds, event_start, event_stop);
-		std::cerr<< "Total time: " << milliseconds/1000 << std::endl;
+		if(text	!= "") // Only print if text is given.
+			std::cerr<< "Total time: " << milliseconds/1000 << std::endl;
 	}
 	return;
 }
